@@ -30,7 +30,7 @@ public class NegociosController {
 	
 	@Autowired
 	GeradorDeNegocios gerador;
-
+ 
 	
 	@RequestMapping(value = "/negocios", method = RequestMethod.GET)
 	@ResponseBody
