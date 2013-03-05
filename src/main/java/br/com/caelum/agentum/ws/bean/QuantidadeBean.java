@@ -10,7 +10,7 @@ public class QuantidadeBean {
 
 	@Bean
 	public Quantidade getQuantidadeMeses() {
-		return Quantidade.TRES;
+		return Quantidade.DOIS;
 	}
 	
 }

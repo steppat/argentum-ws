@@ -2,6 +2,7 @@ package br.com.caelum.argentum.ws.xml;
 
 import java.io.OutputStream;
 import java.io.Reader;
+import java.util.LinkedList;
 import java.util.List;
 
 import br.com.caelum.agentum.ws.modelo.Negocio;
@@ -18,6 +19,8 @@ public class NegociosXmlizer {
 		this.negocios = negocios;
 		this.stream = new XStream(new DomDriver());
 		this.stream.alias("negocio", Negocio.class);
+
+		this.stream.alias("list", LinkedList.class);
 	}
 
 	@SuppressWarnings("unchecked")

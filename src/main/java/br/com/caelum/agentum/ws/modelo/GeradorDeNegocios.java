@@ -65,7 +65,7 @@ public class GeradorDeNegocios {
 	}
 
 	private int geraTotalDeNegociosBaseadoNo(Random random) {
-		return (int) (random.nextDouble() +1 * 10);
+		return (int) (random.nextDouble() +1 * 4);
 	}
 
 	private Random geraRandomComSeed(Long seed) {
