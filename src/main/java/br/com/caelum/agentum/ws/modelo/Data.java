@@ -3,13 +3,13 @@ package br.com.caelum.agentum.ws.modelo;
 import java.util.Calendar;
 
 
-public class Data {
+public final class Data {
 	
 	private final Calendar instance;
-//	private final DataHelper helper = new DataHelper();
 
 	public Data(Calendar instance) {
-		this.instance = this.semHora((Calendar) instance.clone());
+		this.instance = (Calendar) instance.clone();
+		this.semHora(this.instance);
 	}
 	
 	private Data(Calendar instance, boolean nada) {
@@ -34,12 +34,12 @@ public class Data {
 		return semHora(instance);
 	}
 
-	public Calendar getCalendar() {
+	public Calendar toCalendar() {
 		return (Calendar) instance.clone();
 	}
 	
 	public Data mesesAtras(Quantidade meses) {
-		Calendar cal = this.getCalendar();
+		Calendar cal = this.toCalendar();
 		cal.add(Calendar.MONTH, - meses.ordinal());
 		return new Data(cal,true);
 	}
@@ -52,8 +52,10 @@ public class Data {
 		return this.instance.getTimeInMillis();
 	}
 
-	public void adicioneMes(Quantidade um) {
-		this.instance.add(Calendar.DAY_OF_MONTH, 1);
+	public Data adicionDias(Quantidade dias) {
+		Calendar cal = this.toCalendar();
+		cal.add(Calendar.DAY_OF_MONTH,  dias.ordinal());
+		return new Data(cal ,true);
 	}
 
 	@Override
